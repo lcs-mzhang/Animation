@@ -45,9 +45,6 @@ class Sketch : NSObject {
         canvas.fillColor = Color.purple
         canvas.drawEllipse(centreX: -x+500, centreY: 450, width: 50, height: 50)
 
-
-        
-
         
     }
     
