@@ -15,8 +15,11 @@ class Sketch : NSObject {
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
         
+        
         // Set starting position
         x = 250
+        
+        canvas.drawShapesWithBorders = false
         
     }
     
@@ -27,7 +30,17 @@ class Sketch : NSObject {
         x += 1
         
         // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        canvas.fillColor = Color.red
+        canvas.drawEllipse(centreX: x, centreY: x, width: 50, height: 50)
+        
+        canvas.fillColor = Color.yellow
+        canvas.drawEllipse(centreX: -x+500, centreY: -x+500, width: 50, height: 50)
+        
+        canvas.fillColor = Color.blue
+        canvas.drawEllipse(centreX: x, centreY: -x+500, width: 50, height: 50)
+        
+        canvas.fillColor = Color.green
+        canvas.drawEllipse(centreX: -x+500, centreY: x, width: 50, height: 50)
         
     }
     
