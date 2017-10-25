@@ -17,6 +17,8 @@ class Sketch : NSObject {
         
         // Set starting position
         x = 250
+        canvas.drawShapesWithBorders = false
+        
         
     }
     
@@ -24,10 +26,28 @@ class Sketch : NSObject {
     func draw() {
         
         // Change position
-        x += 1
+        x += -1
         
         // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        
+        canvas.fillColor = Color.black
+        canvas.drawEllipse(centreX: -x+500, centreY: 50, width: 50, height: 50)
+        
+        canvas.fillColor = Color.blue
+        canvas.drawEllipse(centreX: x, centreY: 150, width: 50, height: 50)
+        
+        canvas.fillColor = Color.green
+        canvas.drawEllipse(centreX: -x+500, centreY: 250, width: 50, height: 50)
+        
+        canvas.fillColor = Color.orange
+        canvas.drawEllipse(centreX: x, centreY: 350, width: 50, height: 50)
+        
+        canvas.fillColor = Color.purple
+        canvas.drawEllipse(centreX: -x+500, centreY: 450, width: 50, height: 50)
+
+
+        
+
         
     }
     
