@@ -27,18 +27,11 @@ class Sketch : NSObject {
         x += 1
         
         
-        for i : Double in stride(from: 0, to: 6, by: 1)
+        for i : Double in stride(from: 50, to: 650, by: 100)
         {
-        
-        let a : Double = -i/1250
-        let y = a * pow(x,2) + 2*i/5 * x
+            let a : Double = -(i/100)/25
+            let y = a * pow(x,2) + 4*(i/100) * x
+            canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 15, height: 15)
         }
-//        for i : Double in stride(from: 500, to: 0, by: 50)
-//        {
-//            let a : Double = (-i/50)/1250
-//            let y = a * pow(x,2) + i/125 * x
-//        }
-        canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 10, height: 10)
-       
     }
 }
