@@ -27,7 +27,7 @@ class Sketch : NSObject {
         x += 1
         
         
-        for i : Double in stride(from: 50, to: 650, by: 100)
+        for i : Double in stride(from: 50, to: 600, by: 100)
         {
             let a : Double = -(i/100)/25
             let y = a * pow(x,2) + 4*(i/100) * x
