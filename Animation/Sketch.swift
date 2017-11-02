@@ -6,7 +6,9 @@ class Sketch : NSObject {
     var x : Int
     var y : Int
     var x1 : Int
+    var y1 : Int
     
+    var dy1 : Int
     var dx1 : Int
     var dx : Int //Difference in x
     var dy : Int
@@ -27,10 +29,12 @@ class Sketch : NSObject {
         x = random(from: 0, toButNotIncluding: 500)
         y = random(from: 0, toButNotIncluding: 500)
         x1 = 0
+        y1 = 0
         
         speed = 5
         
         dx1 = speed
+        dy1 = speed
         dy = speed
         dx = speed
         
@@ -42,15 +46,16 @@ class Sketch : NSObject {
     func draw() {
         
         //Clear the background
-        canvas.drawShapesWithFill = true
-        canvas.fillColor = Color.white
+//        canvas.drawShapesWithFill = true
+//        canvas.fillColor = Color.white
 //        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
-        
-        canvas.drawShapesWithFill = false
-        canvas.borderColor = Color.black
+//
+//        canvas.drawShapesWithFill = false
+//        canvas.borderColor = Color.black
        
         x1 += dx1
         x += dx
+        y1 += dy1
         y += dy
         
         if x > 500
@@ -77,22 +82,30 @@ class Sketch : NSObject {
         {
             dx1 = speed
         }
-        
+        if y1 > 500
+        {
+            dy1 = -speed
+        }
+        if y1 < 0
+        {
+            dy1 = speed
+        }
         
 //        canvas.drawEllipse(centreX: x, centreY: y, width: 1, height: 1)
 //        canvas.drawEllipse(centreX: x, centreY: y, width: 100, height: 100)
-//        canvas.drawEllipse(centreX: x1, centreY: 250, width: 1, height: 1)
-//        canvas.drawEllipse(centreX: x1, centreY: 250, width: 200, height: 200)
-//
+//        canvas.drawEllipse(centreX: x1, centreY: y1, width: 1, height: 1)
+//        canvas.drawEllipse(centreX: x1, centreY: y1, width: 200, height: 200)
+
 //        distance = sqrt(pow(x1-x, 2) + pow(250-y,2))
+        
         let aSquared = (x1-x)*(x1-x)
-        let bSquared = (250-y)*(250-y)
+        let bSquared = (y1-y)*(y1-y)
         distance = (sqrt(Double(aSquared)+Double(bSquared)))
         
-        if distance < 150
+        if distance < 250
         {
-        canvas.lineColor = Color.red
-        canvas.drawLine(fromX: x1, fromY: 250, toX: x, toY: y)
+        canvas.lineColor = Color.init(hue: y, saturation: 100, brightness: 100, alpha: 100)
+        canvas.drawLine(fromX: x1, fromY: y1, toX: x, toY: y)
         }
         
 
