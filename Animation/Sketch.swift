@@ -44,7 +44,7 @@ class Sketch : NSObject {
         //Clear the background
         canvas.drawShapesWithFill = true
         canvas.fillColor = Color.white
-        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
+//        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
         
         canvas.drawShapesWithFill = false
         canvas.borderColor = Color.black
@@ -79,11 +79,11 @@ class Sketch : NSObject {
         }
         
         
-        canvas.drawEllipse(centreX: x, centreY: y, width: 1, height: 1)
-        canvas.drawEllipse(centreX: x, centreY: y, width: 100, height: 100)
-        canvas.drawEllipse(centreX: x1, centreY: 250, width: 1, height: 1)
-        canvas.drawEllipse(centreX: x1, centreY: 250, width: 200, height: 200)
-        
+//        canvas.drawEllipse(centreX: x, centreY: y, width: 1, height: 1)
+//        canvas.drawEllipse(centreX: x, centreY: y, width: 100, height: 100)
+//        canvas.drawEllipse(centreX: x1, centreY: 250, width: 1, height: 1)
+//        canvas.drawEllipse(centreX: x1, centreY: 250, width: 200, height: 200)
+//
 //        distance = sqrt(pow(x1-x, 2) + pow(250-y,2))
         let aSquared = (x1-x)*(x1-x)
         let bSquared = (250-y)*(250-y)
