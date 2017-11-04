@@ -22,6 +22,7 @@ class Sketch : NSObject {
         canvas.fillColor = Color.black
         canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: canvas.width, height: canvas.height)
         canvas.translate(byX: canvas.width/2, byY: canvas.height/2)
+        
         //HEAD
         canvas.fillColor = Color.white
         canvas.drawEllipse(centreX: 0, centreY: 150, width: 600, height: 600)
@@ -39,8 +40,9 @@ class Sketch : NSObject {
         canvas.drawEllipse(centreX: 125, centreY: -25, width: 50, height: 100)
         canvas.drawEllipse(centreX: -75, centreY: -37, width: 50, height: 100)
         canvas.drawEllipse(centreX: 75, centreY: -37, width: 50, height: 100)
-        canvas.drawEllipse(centreX: -175, centreY: 100, width: 50, height: 100)
-        canvas.drawEllipse(centreX: 175, centreY: 100, width: 50, height: 100)
+//        canvas.drawEllipse(centreX: -175, centreY: -10, width: 50, height: 100)
+//        canvas.drawEllipse(centreX: 175, centreY: -10, width: 50, height: 100)
+
         
         canvas.drawEllipse(centreX: 0, centreY: 100, width: 450, height: 200)
         
@@ -71,7 +73,10 @@ rand = random(from: 0, toButNotIncluding: 11)
             canvas.fillColor = Color.white
         }
 canvas.drawEllipse(centreX: 150, centreY: 200, width: 50, height: 50)
+        
+        canvas.textColor = Color.white
+        let name = "you're gonna have a bad time."
+        canvas.drawText(message: name, size: 50, x: -300, y: -300)
       
     }
-    
 }
