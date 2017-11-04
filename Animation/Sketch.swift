@@ -31,7 +31,7 @@ class Sketch : NSObject {
         x1 = random(from: 0, toButNotIncluding: 500)
         y1 = random(from: 0, toButNotIncluding: 500)
         
-        speed = 1
+        speed = 5
         
         dx1 = speed
         dy1 = speed
