@@ -12,23 +12,23 @@ class Sketch : NSObject {
     let canvas : Canvas
     
     // Position of circle
-    var x : Int
+    var x : Degrees
     var y : Int
-    var x2 : Int
+
     
     // This function runs once
     override init() {
         
         // Create canvas object – specify size
-        canvas = Canvas(width: 500, height: 500)
+        canvas = Canvas(width: 360, height: 360)
         
         // Set starting position
         x = 0
         y = 0
-        x2 = 0
+
         canvas.drawShapesWithBorders = false
         
-        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
+        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 360, height: 360)
         
     }
     
@@ -38,30 +38,21 @@ class Sketch : NSObject {
         // Change position
         x += 1
         
-        y = Int(100*sin(0.02631819699*Double(x)))
-        for k in stride(from: 0, to: 500, by: 20)
+        y = Int(100*sin(Double(x.toRadians()*2)))
+        for k in stride(from: 0, to: 360, by: 20)
         {
-            for _ in stride(from: 20, to: 360, by: 20)
+            if canvas.frameCount < 250
             {
                 canvas.fillColor = Color.init(hue: k, saturation: 100, brightness: 100, alpha: 100)
-                canvas.drawEllipse(centreX: x, centreY: y+k, width: 5, height: 5)
+                canvas.drawEllipse(centreX: Int(x), centreY: y+k, width: 5, height: 5)
+                canvas.drawEllipse(centreX: 360-Int(x), centreY: -y+k, width: 5, height: 5)
             }
-        }
-        
-        canvas.translate(byX: 500, byY: 0)
-        x2 += -1
-        
-        y = Int(100*sin(0.02631819699*Double(x)))
-        for k in stride(from: 0, to: 500, by: 20)
-        {
-            for _ in stride(from: 20, to: 360, by: 20)
-            {
-                canvas.fillColor = Color.init(hue: k, saturation: 100, brightness: 100, alpha: 100)
-                canvas.drawEllipse(centreX: x2, centreY: y+k, width: 5, height: 5)
-            }
-        }
-        
 
+
+        }
+
+        
+      
         
     }
     
