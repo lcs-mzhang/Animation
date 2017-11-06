@@ -1,4 +1,9 @@
 import Foundation
+extension Degrees {
+    func toRadians() -> Double {
+        return Double(self) * Double.pi / 180.0
+    }
+}
 
 class Sketch : NSObject {
     
@@ -8,6 +13,7 @@ class Sketch : NSObject {
     
     // Position of circle
     var x : Int
+    var y : Int
     
     // This function runs once
     override init() {
@@ -16,7 +22,11 @@ class Sketch : NSObject {
         canvas = Canvas(width: 500, height: 500)
         
         // Set starting position
-        x = 250
+        x = 0
+        y = 0
+        canvas.drawShapesWithBorders = false
+        
+        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
         
     }
     
@@ -26,8 +36,27 @@ class Sketch : NSObject {
         // Change position
         x += 1
         
-        // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        y = Int(100*sin(0.02631819699*Double(x)))
+        for k in stride(from: 0, to: 500, by: 20)
+        {
+            for _ in stride(from: 20, to: 360, by: 20)
+            {
+                canvas.fillColor = Color.init(hue: k, saturation: 100, brightness: 100, alpha: 100)
+                canvas.drawEllipse(centreX: x, centreY: y+k, width: 5, height: 5)
+            }
+        }
+        
+        y = -Int(100*sin(0.02631819699*Double(x)))
+        for k in stride(from: 0, to: 500, by: 20)
+        {
+            for _ in stride(from: 20, to: 360, by: 20)
+            {
+                canvas.fillColor = Color.init(hue: k, saturation: 100, brightness: 100, alpha: 100)
+                canvas.drawEllipse(centreX: x, centreY: y+k, width: 5, height: 5)
+            }
+        }
+        
+
         
     }
     
